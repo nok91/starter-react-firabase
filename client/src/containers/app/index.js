@@ -1,10 +1,12 @@
 import React from 'react';
-import { Counter } from '../../features/counter';
+import { Counter } from '../../components/counter';
+import Header from '../../components/header';
 import './styles/app.scss';
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <header className="App-header">
         <Counter />
         <p>

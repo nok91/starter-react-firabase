@@ -7,15 +7,25 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "chokidar-cli": "^2.1.0",
     "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.1.9",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
-    "react-scripts": "4.0.0"
+    "react-scripts": "4.0.0",
+    "tailwindcss": "^2.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm-run-all build:css --parallel watch:css start:react",
+    "start:react": "react-scripts start",
+    "build": "npm run build:css && react-scripts build",
+    "build:css:old": "postcss src/styles/tailwind.css -o src/styles/tailwind.output.css",
+    "watch:css:old": "postcss src/styles/tailwind.css -o src/styles/tailwind.output.css -w",
+    "build:css": "tailwind build src/styles/tailwind.css -o src/styles/tailwind.output.css",
+    "watch:css": "chokidar 'src/**/*.css' 'src/**/*.scss' --ignore src/styles/tailwind.output.css -c 'npm run build:css'",
+
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -33,5 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.2",
+    "postcss-cli": "^8.0.0"
   }
 }
