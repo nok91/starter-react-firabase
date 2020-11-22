@@ -1,4 +1,5 @@
 import PostForm from '../../components/PostForm';
+import withRedirectOnNotAuth from '../../hocs/withRedirectOnNotAuth';
 
 function Home() {
     return (
@@ -8,4 +9,6 @@ function Home() {
     )
 }
 
-export default Home
+Home.displayName = 'HomePage';
+
+export default withRedirectOnNotAuth(Home);
