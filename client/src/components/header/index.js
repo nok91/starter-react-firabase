@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function header() {
     return (
@@ -8,7 +9,7 @@ function header() {
               <div className="flex justify-start lg:w-0 lg:flex-1">
                 <a href="#">
                   <span className="sr-only">Workflow</span>
-                  <img className="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="" />
+                  <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
                 </a>
               </div>
               <div className="-mr-2 -my-2 md:hidden">
@@ -21,12 +22,12 @@ function header() {
                 </button>
               </div>
               <nav className="hidden md:flex space-x-10">
-                <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900 text-red-900">
+                <Link to="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Home
-                </a>
-                <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900 text-red-900">
-                  Settings
-                </a>
+                </Link>
+                <Link to="/redux-demo" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                  Redux Demo
+                </Link>
               </nav>
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                 <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">

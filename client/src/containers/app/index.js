@@ -1,57 +1,22 @@
 import React from 'react';
-import { Counter } from '../../components/counter';
-import Header from '../../components/header';
-import './styles/app.scss';
+import { Route, Switch } from 'react-router-dom';
+import Header from '../../components/Header';
+import Home from '../../pages/Home';
+import ReduxDemo from '../../pages/ReduxDemo'
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
-      <header className="App-header">
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+      <main class="bg-primaryLight">
+        <div class="h-screen max-w-7xl mx-auto px-4 py-6 sm:px-6">
+          <Switch>
+            <Route path="/" component={Home} exact />
+            <Route path="/redux-demo" component={ReduxDemo} exact />
+          </Switch>
+        </div>
+      </main>
+    </>
   );
 }
 

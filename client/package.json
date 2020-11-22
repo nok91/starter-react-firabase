@@ -14,6 +14,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "tailwindcss": "^2.0.1"
   },
@@ -21,11 +22,8 @@
     "start": "npm-run-all build:css --parallel watch:css start:react",
     "start:react": "react-scripts start",
     "build": "npm run build:css && react-scripts build",
-    "build:css:old": "postcss src/styles/tailwind.css -o src/styles/tailwind.output.css",
-    "watch:css:old": "postcss src/styles/tailwind.css -o src/styles/tailwind.output.css -w",
     "build:css": "tailwind build src/styles/tailwind.css -o src/styles/tailwind.output.css",
     "watch:css": "chokidar 'src/**/*.css' 'src/**/*.scss' --ignore src/styles/tailwind.output.css -c 'npm run build:css'",
-
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
